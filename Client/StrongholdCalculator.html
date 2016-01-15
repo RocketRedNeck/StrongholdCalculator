@@ -1,0 +1,54 @@
+<head>
+  <title>StrongholdCalculator</title>
+</head>
+
+<body>
+  <h1>Stronghold Calculator</h1>
+<div class="container">
+  <h1>{{totalScore}}</h1>
+
+  <table class="table">
+
+      {{#each auto}}
+        {{> item}}
+      {{/each}}
+
+
+  </table>
+</div>
+</body>
+
+<template name="show">
+<tr>
+  <td>
+
+  </td>
+  <td>
+
+  </td>
+</tr>
+</template>
+
+
+
+<template name="item">
+
+      <tr>
+        <td>
+          <h3>{{name}}</h3>
+        </td>
+        <td>
+
+            <button class="add">+</button>
+
+        </td>
+        <td>
+          <span>{{score}}</span>
+        </td>
+        <td>
+
+            <button class="sub">-</button>
+
+        </td>
+      </tr>
+</template>
