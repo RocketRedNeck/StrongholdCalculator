@@ -7,3 +7,21 @@ body{
   background-color: white;
   padding: 10px;
 }
+.top{
+  align-content: center;
+}
+.item{
+  padding: 10px;
+}
+
+h3{
+  padding: 5px;
+  padding-bottom: 10px;
+}
+.container{
+  padding-top: 10px;
+}
+IMG.displayed {
+    display: block;
+    margin-left: auto;
+    margin-right: auto }
