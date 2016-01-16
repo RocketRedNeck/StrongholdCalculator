@@ -1,21 +1,58 @@
 <head>
+  <link rel="stylesheet" type="text/css" href="StrongholdCalculator.css">
   <title>StrongholdCalculator</title>
 </head>
 
 <body>
-  <h1>Stronghold Calculator</h1>
-<div class="container">
-  <h1>{{totalScore}}</h1>
-
-  <table class="table">
-
-      {{#each auto}}
-        {{> item}}
-      {{/each}}
+  <h1 align="center"> FIRST Stronghold Calculator</h1>
+  <div class="container">
+    <div class="row">
 
 
-  </table>
-</div>
+    <div class="col-sm-4" style="padding:10px;">
+      <div class="display ">
+        <table class="table ">
+          <h1>Autonomous</h1>
+            {{#each auto}}
+
+              {{> item}}
+            {{/each}}
+        </table>
+      </div>
+    </div>
+    <div class="col-sm-4" style="padding:10px;">
+      <div class="display ">
+        <table class="table ">
+          <h1>Teleoperated</h1>
+            {{#each teleop}}
+
+              {{> item}}
+            {{/each}}
+        </table>
+      </div>
+    </div>
+
+
+    <div class="col-sm-4" style="padding:10px;">
+      <div class="display ">
+        <h1>{{totalScore}}</h1>
+      </div>
+    </div>
+
+    <div class="col-sm-4" style="padding:10px;">
+      <div class="display ">
+        <table class="table ">
+          <h1>End Game</h1>
+            {{#each endgame}}
+              {{> item}}
+            {{/each}}
+        </table>
+      </div>
+    </div>
+
+
+  </div>
+  </div>
 </body>
 
 <template name="show">
@@ -30,7 +67,6 @@
 </template>
 
 
-
 <template name="item">
 
       <tr>
@@ -43,7 +79,7 @@
 
         </td>
         <td>
-          <span>{{score}}</span>
+          <h3 style="padding: 5px; padding-bottom: 10px;">{{score}}</h3>
         </td>
         <td>
 

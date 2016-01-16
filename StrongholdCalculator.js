@@ -1,34 +1,21 @@
 Autonomous = new Mongo.Collection(null);
-Teleop = new Mongo.Collection(null);
-Endgame = new Mongo.Collection(null);
+
 //init the arrays
 var autos = [
-  { name: 'Reaching a Defense', score: 0, multi: 2},
-  { name: 'Crossing a Defense', score: 0, multi:10},
-  { name: 'Boulder in a Low Tower Goal', score: 0 , multi:5},
-  { name: 'Bouder in a High Tower Goal', score: 0, multi:10}
+  { name: 'Reaching a Defense', score: 0, multi: 2, type:1},
+  { name: 'Crossing a Defense', score: 0, multi:10, type:1},
+  { name: 'Boulder in a Low Tower Goal', score: 0 , multi:5, type:1},
+  { name: 'Bouder in a High Tower Goal', score: 0, multi:10, type:1},
+  { name: 'Crossing a Defense', score: 0, multi: 5, type:2},
+  { name: 'Boulder in a low Tower Goal', score: 0, multi:2, type:2},
+  { name: 'Boulder in a High Tower Goal', score: 0 , multi:5, type:2},
+  { name: 'Challenging the Tower', score: 0, multi: 5, type:3},
+  { name: 'Scailing the Tower', score: 0, multi:15, type:3}
 ];
-var teleop = [
-  { name: 'Crossing a Defense', score: 0, multi: 5},
-  { name: 'Boulder in a low Tower Goal', score: 0, multi:2},
-  { name: 'Boulder in a High Tower Goal', score: 0 , multi:5}
 
-];
-
-var endgame = [
-  { name: 'Challenging the Tower', score: 0, multi: 5},
-  { name: 'Scailing the Tower', score: 0, multi:15}
-
-];
 
 for (var i = 0; i < autos.length; i++) {
  Autonomous.insert(autos[i]);
-}
-for (var i = 0; i < teleop.length; i++) {
- Teleop.insert(teleop[i]);
-}
-for (var i = 0; i < endgame.length; i++) {
- Autonomous.insert(endgame[i]);
 }
 if (Meteor.isClient) {
   // counter starts at 0
@@ -36,10 +23,16 @@ if (Meteor.isClient) {
 
   Template.body.helpers({
     auto: function () {
-      return Autonomous.find({});
+      return Autonomous.find({type:1});
+    },
+    teleop: function () {
+      return Autonomous.find({type:2});
+    },
+    endgame: function () {
+      return Autonomous.find({type:3});
     },
     totalScore: function(){
-      return "Score: "+Session.get('totalScore');
+      return "Total Score: "+Session.get('totalScore');
     }
   });
 
